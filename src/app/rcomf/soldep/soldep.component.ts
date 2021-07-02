@@ -29,7 +29,6 @@ export class SoldepComponent implements OnInit {
   }
   insertData(){
     this.operationservice.insertData(this.operation).subscribe(res=>{
-      console.log('e5dem nayekk');
       this.router.navigate(['rcomf/treso']);
       this.toastr.success('avec succès', 'Operation ajouté :)');
       });
