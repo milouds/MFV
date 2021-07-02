@@ -4,7 +4,9 @@ import { AddClientComponent } from './add-client/add-client.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { ClientDetailsComponent } from './client-details/client-details.component';
 import { EditClientComponent } from './edit-client/edit-client.component';
+import { EditfactComponent } from './editfact/editfact.component';
 import { EditProductsComponent } from './editproduct/editproduct.component';
+import { FactdetailsComponent } from './factdetails/factdetails.component';
 import { ProductDetailsComponent } from './productdetails/productdetails.component';
 import { RventeComponent } from './rvente.component';
 const routes: Routes = [
@@ -30,6 +32,8 @@ const routes: Routes = [
    {path:'vente/Bonsortie/Addbons',loadChildren:()=>import('./add-bons/add-bons.module').then(m=>m.AddBonsModule)},
    {path:'vente/CommandeCl/Addcomm',loadChildren:()=>import('./add-comm/add-comm.module').then(m=>m.AddCommModule)},
    {path:'vente/Facture/Addfact',loadChildren:()=>import('./add-fact/add-fact.module').then(m=>m.AddFactModule)},
+   {path:'vente/Facture/factdetails/:id',component:FactdetailsComponent},
+   {path:'vente/Facture/editfact/:id',component:EditfactComponent},
  ]}
 ];
 @NgModule({

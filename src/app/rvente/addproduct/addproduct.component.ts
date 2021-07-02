@@ -37,7 +37,6 @@ export class AddproductComponent implements OnInit {
     this.productService.insertData(this.product).subscribe(res=>{
       this.router.navigate(['rvente/Products']);
       this.toastr.success('avec succès', 'Produit ajouté :)');
-
       });
   }
   annuler(){

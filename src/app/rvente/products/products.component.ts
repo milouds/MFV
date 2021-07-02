@@ -10,7 +10,6 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductsComponent implements OnInit {
   products:any;
-  product = new productModel();
 constructor(private ProductService:ProductService,private toastr: ToastrService) { }
 ngOnInit(): void {
   this.getProductsData()
@@ -19,11 +18,6 @@ getProductsData(){
   this.ProductService.getData().subscribe(res=>{
   this.products=res;
   });
-}
-insertData(){
-  this.ProductService.insertData(this.product).subscribe(res=>{
-    this.getProductsData();
-    });
 }
 deleteProduct(id: any){
   this.ProductService.deleteData(id).subscribe(res=>{

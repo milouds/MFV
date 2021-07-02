@@ -19,7 +19,7 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="country" class="form-label mr-3" style="font-size: small;color: lightslategrey;">Type:</label>
-                            <select class="form-select" id="country" style="font-size: small;" required>
+                            <select class="form-select" id="country" (change)="gettype($event)" style="font-size: small;" required>
                        <option>Émis</option>
                        <option>Reçu</option>
                      </select>
@@ -32,7 +32,7 @@
                             <input type="number" name="montant" class="form-control" style="font-size: small;" required>
                         </div>
                         <div class="col-sm-4">
-                            <label for="client" style="font-size: small;color: lightslategrey;">Client :</label>
+                            <label for="client" style="font-size: small;color: lightslategrey;">{{name}} :</label>
                             <input type="text" name="client" class="form-control" style="font-size: small;" required>
                         </div>
                     </div>

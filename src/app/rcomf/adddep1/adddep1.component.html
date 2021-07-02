@@ -8,11 +8,11 @@
                 </div>
             </div>
             <div class="card-body">
-                <form>
+                <form (ngSubmit)="insertData()" method="POST">
                     <div class="row gy-2 gx-3 align-items-center">
                         <div class="col-sm-4">
                             <label for="country" class="form-label mr-3" style="font-size: small;color: lightslategrey;">Mode :</label>
-                            <select class="form-select" id="country" style="font-size: small;" required>
+                            <select class="form-select" id="country" style="font-size: small;" [(ngModel)]="depense.type" [ngModelOptions]="{standalone: true}" required>
                         <option>Chèque</option>
                         <option>Traite</option>
                       </select>
@@ -22,11 +22,11 @@
                     <div class="row gy-2 gx-3 align-items-center">
                         <div class="col-sm-4">
                             <label for="fournisseur" style="font-size: small;color: lightslategrey;">Fournisseur :</label>
-                            <input type="text" name="client" class="form-control" style="font-size: small;" required>
+                            <input type="text" name="client" class="form-control" style="font-size: small;" [(ngModel)]="depense.fournisseur" [ngModelOptions]="{standalone: true}" required>
                         </div>
                         <div class="col-sm-4">
                             <label for="montant" style="font-size: small;color: lightslategrey;">Montant :</label>
-                            <input type="number" name="montant" class="form-control" style="font-size: small;" required>
+                            <input type="number" name="montant" class="form-control" style="font-size: small;" [(ngModel)]="depense.montant" [ngModelOptions]="{standalone: true}" required>
                         </div>
 
                     </div>
@@ -34,25 +34,25 @@
                     <div class="row g-3 ">
                         <div class="col-sm-4">
                             <label for="categorie" style="font-size: small;color: lightslategrey;">Catégorie :</label>
-                            <input type="text" name="categorie" style="font-size: small;" class="form-control" required>
+                            <input type="text" name="categorie" style="font-size: small;" class="form-control" [(ngModel)]="depense.categorie" [ngModelOptions]="{standalone: true}" required>
                         </div>
                         <div class="col-md-4">
                             <label for="Dr" style="font-size: small;color: lightslategrey;">Date de règlement :</label>
-                            <input type="date" name="Dr" style="font-size: small;" class=" form-control" required>
+                            <input type="date" name="Dr" style="font-size: small;" class=" form-control" [(ngModel)]="depense.datereg" [ngModelOptions]="{standalone: true}" required>
                         </div>
                     </div>
                     <hr class="my-4 ">
                     <div class="row g-3 ">
                         <div class="col-md-4">
                             <label for="note" style="font-size: small;color: lightslategrey;">Note:</label>
-                            <textarea class="form-control" style="font-size: small;" requiredcols="60">
+                            <textarea class="form-control" style="font-size: small;" [(ngModel)]="depense.note" [ngModelOptions]="{standalone: true}" requiredcols="60">
                                 </textarea>
                         </div>
                     </div>
                     <hr class="my-4 ">
                     <div class=" text-right ">
-                        <button type="button " style="font-size: small; " class="btn btn-danger mr-2 ">Annuler</button>
-                        <button type="submit " style="font-size: small; " class=" btn btn-primary ">Enregistrer</button>
+                        <button type="button" style="font-size: small;" (click)="(annuler())" class="btn btn-danger mr-2">Annuler</button>
+                        <button type="submit" style="font-size: small;" class="btn btn-primary">Enregistrer</button>
                     </div>
                 </form>
             </div>

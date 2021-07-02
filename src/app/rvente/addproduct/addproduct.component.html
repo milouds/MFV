@@ -1,6 +1,6 @@
 <div style="padding: 2%;">
     <div class="col-lg-12">
-        <div class="card card-primary card-outline">
+        <div class="card card-primary card-outline shadow-lg p-3 mb-5 bg-white rounded">
             <div class="card-header">
                 <h3 class="card-title"><i class="nav-icon fas fa-box-open mr-2"></i>Ajouter Produit</h3>
             </div>
@@ -108,11 +108,11 @@
                     <div class="row g-3 ">
                         <div class="col-sm-4">
                             <label for="refconst" style="font-size: small;color: lightslategrey;">Référence de constructeur :</label>
-                            <input type="number" style="font-size: small;" name="refconst " class="form-control " [(ngModel)]="product.refconst " [ngModelOptions]="{standalone: true} " required>
+                            <input type="number" style="font-size: small;" name="refconst " class="form-control " [(ngModel)]="product.refconst" [ngModelOptions]="{standalone: true} " required>
                         </div>
                         <div class="col-sm-4">
                             <label for="refint" style="font-size: small;color: lightslategrey;">Référence interne :</label>
-                            <input type="number" style="font-size: small;" name="refint" class="form-control" [(ngModel)]="product.refint " [ngModelOptions]="{standalone: true} " required>
+                            <input type="number" style="font-size: small;" name="refint" class="form-control" [(ngModel)]="product.refint" [ngModelOptions]="{standalone: true} " required>
                         </div>
                     </div>
                     <hr class="my-4">

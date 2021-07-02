@@ -1,11 +1,11 @@
 <div style="padding: 2%;">
     <div class="col-lg-12">
-        <div class="card card-primary card-outline">
+        <div class="card card-primary card-outline shadow-lg p-3 mb-5 bg-white rounded">
             <div class="card-header">
                 <h3 class="card-title"><i class="nav-icon fas fa-user mr-2"></i>Clients</h3>
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
-                        <input type="text" class="form-control" placeholder="Recherche client">
+                        <input type="text" class="form-control" placeholder="Recherche client" id="myInput">
                         <div class="input-group-append">
                             <div class="btn btn-primary">
                                 <i class="fas fa-search"></i>
@@ -33,7 +33,7 @@
                             <th style="width: 130px; ">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
                         <tr *ngFor="let c of clients ">
                             <th>{{c.id}}</th>
                             <td>{{c.name}}</td>

@@ -1,6 +1,6 @@
 <div style="padding: 2%;">
     <div class="col-lg-12">
-        <div class="card card-primary card-outline">
+        <div class="card card-primary card-outline shadow-lg p-3 mb-5 bg-white rounded">
             <div class="card-header">
                 <h3 class="card-title"><i class="nav-icon fas fa-box-open mr-2"></i>Details de {{product.name}}</h3>
             </div>
@@ -78,8 +78,6 @@
                     <hr class="my-4">
                     <div class=" text-right ">
                         <button type="button" style="font-size: small;" (click)="(annuler())" class="btn btn-warning mr-2">Retour</button>
-                        <button class="btn btn-danger mr-2" style="font-size: small;" (click)="deleteProduct(product.id)">Supprimer</button>
-                        <button class="btn btn-primary" style="font-size: small;" routerLink="Editproduct/{{product.id}}">Modifier</button>
                     </div>
                 </div>
             </div>
