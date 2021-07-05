@@ -33,6 +33,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr *ngFor="let ff of bondereception">
+                            <th>{{ff.Ref_Facture}}</th>
+                            <td>{{ff.date_creation}}</td>
+                            <td>{{ff.Nom_fournisseur}}</td>
+                            <td>{{ff.Montant_TTC}}</td>
+                            <td style="color:red; ">{{ff.Etat}}</td>
+                            <td></td>
+                            <td>
+                                <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#exampleModal" style="font-size: small;"><i class="fas fa-dollar-sign"></i></button>
+                                <button type="button" class="btn btn-default btn-sm" style="font-size: small;" routerLink="editfacf/{{ff.id}}"><i class="far fa-edit"></i></button>
+                                <button type="button" class="btn btn-default btn-sm" style="font-size: small;" routerLink="facfdetails/{{ff.id}}"><i class="far fa-eye"></i></button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
