@@ -21,4 +21,7 @@ export class FacturesService {
   deleteData(id:any){
     return this.http.delete('http://127.0.0.1:8000/api/facturef/'+id);
   }
+  nbrff(){
+    return this.http.get('http://127.0.0.1:8000/api/facturef/nbff');
+  }
 }

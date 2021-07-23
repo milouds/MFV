@@ -14,7 +14,6 @@ export class StockprComponent implements OnInit {
   ttc:any;
   public:any;
   constructor(private ProductService:ProductService,private toastr: ToastrService) { }
-
   ngOnInit(): void {
     this.getProductsData();
   }
@@ -33,6 +32,5 @@ export class StockprComponent implements OnInit {
     this.ProductService.nbprod().subscribe(res=>{
     this.nbprod=res;
   });
-
-  }
+ }
 }

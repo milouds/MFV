@@ -25,5 +25,9 @@ export class ProductService{
   nbprod(){
     return this.http.get('http://127.0.0.1:8000/api/rvente/nbprod');
   }
+  getNumberProduct(){
+    return this.http.get('http://127.0.0.1:8000/api/calcul');
+
+  }
 
 }

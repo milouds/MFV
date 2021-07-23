@@ -21,5 +21,8 @@ export class factureService {
   deleteData(id:any){
     return this.http.delete('http://127.0.0.1:8000/api/facture/'+id);
   }
+  nbrf(){
+    return this.http.get('http://127.0.0.1:8000/api/facture');
+  }
 }
 

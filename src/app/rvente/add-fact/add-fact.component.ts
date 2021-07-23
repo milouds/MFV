@@ -41,6 +41,7 @@ export class AddFactComponent implements OnInit {
     this.getproduits();
     this.facture.Montant_TTC=0;
     this.facture.Montant_TVA=0;
+    this.facture.note="pas de note";
   }
   add(){
     let fact = new Facturemodel();
@@ -68,6 +69,8 @@ export class AddFactComponent implements OnInit {
       }
       this.facture.ListProductv=listvente;
       this.factService.insertData(this.facture).subscribe(res => {
+        this.router.navigate(['rvente/vente/Facture']);
+        this.toastr.success('avec succès', 'Facture Enregistrée');
       });
     }
     getproduits() {

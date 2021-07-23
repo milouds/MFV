@@ -20,7 +20,6 @@ export class Facturemodel {
     product: productModel[]=[];
     ListProductv: ListProductv[]=[];
     id: any;
-
 }
 
 

@@ -17,10 +17,14 @@ import { EditProductsComponent } from './editproduct/editproduct.component';
 import { ProductDetailsComponent } from './productdetails/productdetails.component';
 import { FactdetailsComponent } from './factdetails/factdetails.component';
 import { EditfactComponent } from './editfact/editfact.component';
-
-
+import { EditdevisComponent } from './editdevis/editdevis.component';
+import { DevisdetailsComponent } from './devisdetails/devisdetails.component';
+import { EditcommcComponent } from './editcommc/editcommc.component';
+import { CommdetailsComponent } from './commdetails/commdetails.component';
+import { EditbonlComponent } from './editbonl/editbonl.component';
+import { BonldetailsComponent } from './bonldetails/bonldetails.component';
 @NgModule({
-  declarations: [RventeComponent, SidebarComponent, TopbarComponent, AsidebarComponent, FooterComponent,AddClientComponent,ClientDetailsComponent,EditClientComponent, AddproductComponent,EditProductsComponent,ProductDetailsComponent, FactdetailsComponent, EditfactComponent],
+  declarations: [RventeComponent, SidebarComponent, TopbarComponent, AsidebarComponent, FooterComponent,AddClientComponent,ClientDetailsComponent,EditClientComponent, AddproductComponent,EditProductsComponent,ProductDetailsComponent, FactdetailsComponent, EditfactComponent, EditdevisComponent, DevisdetailsComponent, EditcommcComponent, CommdetailsComponent, EditbonlComponent, BonldetailsComponent],
   imports: [
     CommonModule,
     RventeRoutingModule,

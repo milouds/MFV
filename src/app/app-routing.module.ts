@@ -4,8 +4,6 @@ import { AccComponent } from './acc/acc.component';
 import { AuthGuard } from './auth.guards';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
-
 const routes: Routes = [
   {path:'',component:AccComponent},
   {path:'rvente',loadChildren:()=>import('./rvente/rvente.module').then(m=>m.RventeModule),
@@ -15,7 +13,6 @@ const routes: Routes = [
   {path:'Login',component:LoginComponent},
   {path:'rachat',loadChildren:()=>import('./rachat/rachat.module').then(m=>m.RachatModule)},
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

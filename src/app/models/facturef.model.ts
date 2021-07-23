@@ -20,5 +20,4 @@ export class FournisseurFacture {
     product: productModel[]=[];
     ListProduct: ListProduct[]=[];
     id: any;
-
 }
