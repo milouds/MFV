@@ -18,6 +18,7 @@ export class FournisseurFacture {
     Nom_fournisseur:any="";
     Taxe_Applique:any="";
     product: productModel[]=[];
+    produit: productModel=new productModel();
     ListProduct: ListProduct[]=[];
     id: any;
 

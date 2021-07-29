@@ -67,14 +67,14 @@
                     </thead>
                     <tbody id="myTable">
                         <tr *ngFor="let ff of facturef">
-                            <th>{{ff.Ref_Facture}}</th>
+                            <td>{{ff.Ref_Facture}}</td>
                             <td>{{ff.date_creation}}</td>
                             <td>{{ff.Nom_fournisseur}}</td>
                             <td>{{ff.Montant_TTC}}</td>
                             <td style="color:red; ">{{ff.Etat}}</td>
                             <td></td>
                             <td>
-                                <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#exampleModal" style="font-size: small;"><i class="fas fa-dollar-sign"></i></button>
+                                <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#exampleModal" (click)="payer(ff)" style="font-size: small;"><i class="fas fa-dollar-sign"></i></button>
                                 <button type="button" class="btn btn-default btn-sm" style="font-size: small;" routerLink="editfacf/{{ff.id}}"><i class="far fa-edit"></i></button>
                                 <button type="button" class="btn btn-default btn-sm" style="font-size: small;" routerLink="facfdetails/{{ff.id}}"><i class="far fa-eye"></i></button>
                             </td>
@@ -85,58 +85,104 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p _ngcontent-auq-c14="" class="ml-4">Montant à payer</p>
-                                <!---->
-                                <p _ngcontent-auq-c14="" class="primary ml-5" style="font-weight: 700; font-size:small;color: lightskyblue;"> 134,200&nbsp;TND <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small"></span></p>
-                            </div>
-                            <div class="col-md-6 ml-auto">
-                                <p _ngcontent-auq-c14="" class="ml-4">Reste à payer</p>
-                                <!---->
-                                <p _ngcontent-auq-c14="" class="primary ml-5" style="font-weight: 700; font-size:small;color:red;"> 134,200&nbsp;TND <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small"></span></p>
-                            </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <p _ngcontent-auq-c14="" class="ml-4">Montant &nbsp; Total</p>
+                            <!---->
+                            <p _ngcontent-auq-c14="" class="primary ml-3"
+                                style="font-weight: 700; font-size:small;color: lightskyblue;">
+                                {{factureSelectionner.Montant_TTC}}&nbsp;TND <span _ngcontent-auq-c14=""
+                                    style="font-weight: 400; font-size: small"></span></p>
                         </div>
 
+                        <div class="col-md-4 ml-5">
+                            <p _ngcontent-auq-c14="" class="ml-4">Montant à &nbsp; &nbsp; &nbsp;
+                                payer</p>
+
+                                <p _ngcontent-auq-c14="" class="primary ml-5"
+                                style="font-weight: 700; font-size:small;color: rgb(135, 250, 135);">
+                                &nbsp; 
+                                <!-- {{p[0].paye}}  -->
+
+                                {{montantPayer}} TND <span _ngcontent-auq-c14=""
+                                    style="font-weight: 400; font-size: small"></span></p>
+                        </div>
+                        <div class="col-md-3 ml-auto">
+                            <p _ngcontent-auq-c14="" class="ml-4">Reste à payer</p>
+                            <!---->
+                            <p _ngcontent-auq-c14="" class="primary ml-5"
+                                style="font-weight: 700; font-size:small;color:red;">
+                                &nbsp;
+                                <!-- {{p[0].reste}} -->
+                                {{factureSelectionner.Montant_TTC-montantPayer}} TND <span _ngcontent-auq-c14=""
+                                    style="font-weight: 400; font-size: small"></span></p>
+                        </div>
                     </div>
 
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
                 </div>
-                <div class="modal-body">
-                    <div class="container-fluid mb-2">
-                        <div class="row ml">
-                            <div class="col-md-6">
-                                <label for="MP" style="font-size: small;color:lightslategrey">Montant à payer</label>
-                                <input type="text" style="font-size: small;" name="MP" class="form-control " required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="RP" style="font-size: small;color:lightslategrey">Reste à payer:</label>
-                                <input type="text" style="font-size: small;" name="RP" class="form-control " required>
-                            </div>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid mb-2">
+                    <div class="row ml">
+                        <div class="col-md-6">
+                            <label for="MP" style="font-size: small;color:lightslategrey">Montant à
+                                payer</label>
+                            <input type="text" style="font-size: small;" name="MP"
+                            [(ngModel)]="paiement.paye"
+                            class="form-control " required
+                            (change)="getmontantReste()">
+                             
+
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="DP" style="font-size: small;color:lightslategrey">Date de règlement</label>
-                                <input type="date" style="font-size: small;" name="DP" class="form-control " required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="DE" style="font-size: small;color:lightslategrey">Date d'échéance</label>
-                                <input type="date" style="font-size: small;" name="DE" class="form-control " required>
-                            </div>
+                        <div class="col-md-6">
+                            <label for="RP" style="font-size: small;color:lightslategrey">Reste à
+                                payer:</label>
+                            <input type="text" style="font-size: small;"  
+                          
+                            [(ngModel)]="paiement.reste"
+                            name="RP" class="form-control " required disabled>
+                                  <!-- [(ngModel)]="p[0].reste"  [ngModelOptions]="{standalone: true}"-->
+
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" style="color:white;font-size: small;" data-dismiss="modal">Annuler</button>
-                        <button type="button" class="btn btn-success" style="color:white;font-size: small;">Payer</button>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="DP" style="font-size: small;color:lightslategrey">Date de
+                                règlement</label>
+                            <input type="date" style="font-size: small;" name="DP"  
+                            [(ngModel)]="paiement.date_reglement"
+                                class="form-control " required>
+                                <!-- [(ngModel)]="p[0].date_reglement"  [ngModelOptions]="{standalone: true}" -->
+                        </div>
+                        <div class="col-md-6">
+                            <label for="DE" style="font-size: small;color:lightslategrey">Date
+                                d'échéance</label>
+                            <input type="date" style="font-size: small;" 
+                            [(ngModel)]="paiement.date_echenace"
+                                class="form-control "  required>
+                                <!-- [(ngModel)]="p[0].date_echenace"  [ngModelOptions]="{standalone: true}"-->
+                        </div>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                        style="color:white;font-size: small;" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-success"
+                        style="color:white;font-size: small;" (click)="createPaiement()"
+                        data-dismiss="modal">Payer</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
