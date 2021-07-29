@@ -63,34 +63,34 @@
                           </div> -->
 
 
-                        <div class="row gy-2 gx-3 align-items-center " *ngFor="let prod of listProduct">
+                        <div class="row gy-2 gx-3 align-items-center " *ngFor="let factfour of facturefournisseur">
 
                             <div class="col-sm-2 "> <label for="produit" style="font-size: small;color:lightslategrey">Produit :</label>
-                                <select class="form-control" (change)="getSelecteItem(prod)" [(ngModel)]="prod.id_product" [ngModelOptions]="{standalone: true}" required>
+                                <select class="form-control" (change)="getSelecteItem(factfour)" [(ngModel)]="factfour.id_product" [ngModelOptions]="{standalone: true}" required>
                                       <option *ngFor="let p of products" value={{p.id}}>{{p.name}}</option>
                                   </select>
                             </div>
-                            <div class="col-sm-4 "> <label for="quantite" style="font-size: small;color:lightslategrey">Quantité :</label> <input type="number" style="font-size: small;" name="quantite_entre " (change)="getq(prod)" class="form-control " [(ngModel)]="prod.quantite_entre"
+                            <div class="col-sm-4 "> <label for="quantite" style="font-size: small;color:lightslategrey">Quantité :</label> <input type="number" style="font-size: small;" name="quantite_entre " (change)="getq(factfour)" class="form-control " [(ngModel)]="factfour.quantite_entre"
                                     [ngModelOptions]="{standalone: true}" value="1" required>
                             </div>
                             <div class="col-sm-3 "> <label for="produit" style="font-size: small;color:lightslategrey">Montant TVA: </label>
 
-                                <input type="" name="MONTANT_TVA" style="font-size: small;" class="form-control" [(ngModel)]="prod.Montant_TVA" [ngModelOptions]="{standalone: true}" required disabled>
+                                <input type="" name="MONTANT_TVA" style="font-size: small;" class="form-control" [(ngModel)]="factfour.Montant_TVA" [ngModelOptions]="{standalone: true}" required disabled>
 
 
 
                                 <div> <label for="produit" style="font-size: small;color:lightslategrey">Taxe
                                           Appliqqué:
                                       </label>
-                                    <input type="" name="TAXA" style="font-size: small;" class="form-control" [(ngModel)]="prod.Taxe_Applique" [ngModelOptions]="{standalone: true}" required disabled>
+                                    <input type="" name="TAXA" style="font-size: small;" class="form-control" [(ngModel)]="factfour.Taxe_Applique" [ngModelOptions]="{standalone: true}" required disabled>
                                 </div>
                             </div>
                             <div class="col-sm-3 "> <label for="produit" style="font-size: small;color:lightslategrey">Total HT: </label>
-                                <input type="" name="Prix_HT" style="font-size: small;" class="form-control" [(ngModel)]="prod.Total_HT" [ngModelOptions]="{standalone: true}" required disabled>
+                                <input type="" name="Prix_HT" style="font-size: small;" class="form-control" [(ngModel)]="factfour.Total_HT" [ngModelOptions]="{standalone: true}" required disabled>
 
                                 <div> <label for="produit" style="font-size: small;color:lightslategrey">Total TTC:
                                       </label>
-                                    <input type="" name="Prix_TTC" style="font-size: small;" class="form-control" [(ngModel)]="prod.Montant_TTC" [ngModelOptions]="{standalone: true}" required disabled>
+                                    <input type="" name="Prix_TTC" style="font-size: small;" class="form-control" [(ngModel)]="factfour.Montant_TTC" [ngModelOptions]="{standalone: true}" required disabled>
                                 </div>
                             </div>
                         </div>

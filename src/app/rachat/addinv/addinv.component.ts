@@ -33,7 +33,7 @@ productInv:Inventairemodel [] = [new Inventairemodel()];
         product.Libelle=this.productInv[i].Libelle;
         listinv.push(product);
       }
-    this.invservice.insertData(this.inv).subscribe(res=>{
+      this.invservice.insertData(this.inv).subscribe(res=>{
       this.router.navigate(['rachat/inventaire']);
       this.toastr.success('', 'Iventaire Enregistré');
     })
@@ -50,10 +50,7 @@ productInv:Inventairemodel [] = [new Inventairemodel()];
     prod.Taxe_Applique=prod.product.typetaxe;
     prod.Montant_TTC=qte*prod.product.pricettc;
     prod.Total_HT=qte*prod.product.priceht;
-    
 }
-
-
   annuler(){
     this.router.navigate(['rachat/inventaire']);
     this.toastr.error('', 'Annulation');

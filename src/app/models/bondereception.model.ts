@@ -1,7 +1,7 @@
-import { ListProduct } from "./Listproduct.model";
+import { Listproductb } from "./listproductb.model";
 import { productModel } from "./product.model";
 
-export class FournisseurFacture {
+export class Bondereception {
     Ref_Facture:any="";
     quantite_entre:any="";
     Total_HT:any="";
@@ -18,7 +18,6 @@ export class FournisseurFacture {
     Nom_fournisseur:any="";
     Taxe_Applique:any="";
     product: productModel[]=[];
-    produit: productModel=new productModel();
-    ListProduct: ListProduct[]=[];
+    ListProductb: Listproductb[]=[];
     id: any;
 }
