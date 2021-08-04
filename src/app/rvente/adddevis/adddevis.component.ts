@@ -44,6 +44,7 @@ export class AdddevisComponent implements OnInit {
     this.Devis.Montant_TTC=0;
     this.Devis.Montant_TTC=0;
     this.Devis.note="pas de note";
+    this.Devis.Ref_Facture="dev-"
   }
   add(){
     let dev = new Devismodel();

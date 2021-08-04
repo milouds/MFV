@@ -4,7 +4,6 @@ import { clientModel } from 'src/app/models/clients.model';
 import { ClientsService } from 'src/app/services/clients.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
 @Component({
   selector: 'app-add-client',
   templateUrl: './add-client.component.html',
@@ -16,6 +15,8 @@ export class AddClientComponent implements OnInit {
   constructor(private clientService:ClientsService,private route:ActivatedRoute,private router:Router,private toastr: ToastrService) {}
   ngOnInit(): void {
     this.getClientsData()
+    this.client.type="particulier";
+    this.client.civilite="M"
   }
   getClientsData(){
     this.clientService.getClientData().subscribe(res=>{

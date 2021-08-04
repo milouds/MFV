@@ -43,6 +43,7 @@ export class AddbonlComponent implements OnInit {
     this.bonl.Montant_TTC=0;
     this.bonl.Montant_TVA=0;
     this.bonl.note="pas de note";
+    this.bonl.Ref_Facture="bonl-"
   }
   add(){
     let bl = new Bonlivraisonmodel();

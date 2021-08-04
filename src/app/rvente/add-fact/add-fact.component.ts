@@ -42,6 +42,7 @@ export class AddFactComponent implements OnInit {
     this.facture.Montant_TTC=0;
     this.facture.Montant_TVA=0;
     this.facture.note="pas de note";
+    this.facture.Ref_Facture="fac-"
   }
   add(){
     let fact = new Facturemodel();

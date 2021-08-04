@@ -42,6 +42,7 @@ export class AddCommComponent implements OnInit {
     this.commcl.Montant_TTC=0;
     this.commcl.Montant_TVA=0;
     this.commcl.note="pas de note";
+    this.commcl.Ref_Facture="comm-"
   }
   add(){
     let comm = new Commclmodel();

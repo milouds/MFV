@@ -13,15 +13,12 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./facturef.component.css']
 })
 export class FacturefComponent implements OnInit {
-
-
   facture = new FournisseurFacture();
-
   facturef:any
   ht: any;
   ttc:any;
   Net:any=0;
-
+  ne=0;
   FactById: any;
   MontantFacture: any;
   values: any;
@@ -30,18 +27,11 @@ export class FacturefComponent implements OnInit {
 /*   estpayer:any;
  */
   estpayer:boolean = false;
-
-
-
   montantPayer=0;
-
- factureSelectionner= new FournisseurFacture();
-
+  factureSelectionner= new FournisseurFacture();
   p:any;
-
   paiements:Paiement[]=new Array<Paiement>();
   paiement=new Paiement();
-
   constructor(private route:ActivatedRoute,private router:Router,private toastr: ToastrService,private factureService: FacturesService,private productService:ProductService,private four:FournisseursService,private paiementService:PaiementService) { }
   ngOnInit(): void {
     this.getfacturefdata();
@@ -55,10 +45,12 @@ export class FacturefComponent implements OnInit {
    this.ht=0;
    this.ttc=0;
    this.Net=0;
+   this.ne=0;
    for (var i = 0;i <this.facturef.length; i++) {
     this.ht+=this.facturef[i].Total_HT;
     this.ttc+=this.facturef[i].Montant_TTC;
-    this.Net+=this.facturef[i].facture;
+    this.ne=this.facturef[i].Montant_TTC+this.facturef[i].Timbre_fiscale
+    this.Net+=this.ne;
 
     }
    });
@@ -154,7 +146,6 @@ insert() {
   }
 
   createPaiement(){
-
     this.paiement.id_facture=this.factureSelectionner.id;
     this.paiementService.insertData(this.paiement).subscribe(res => {
 
