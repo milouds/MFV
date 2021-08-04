@@ -30,19 +30,19 @@
                         <div _ngcontent-auq-c14="" class="col-lg-3 col-12">
                             <p _ngcontent-auq-c14="" class="ml-4">RÉGLÉES</p>
                             <!---->
-                            <p _ngcontent-auq-c14="" style="font-weight: 700; font-size:small; color: green;"> 134,200&nbsp;EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small">TTC</span></p>
+                            <p _ngcontent-auq-c14="" style="font-weight: 700; font-size:small; color: green;"> {{reg}}&nbsp;EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small">TTC</span></p>
                             <!---->
                         </div>
                         <div _ngcontent-auq-c14="" class="col-lg-3 col-12">
                             <p _ngcontent-auq-c14="" class="">À RÉGLER</p>
                             <!---->
-                            <p _ngcontent-auq-c14="" style="font-weight: 700; font-size:small;color:red">{{Net}}&nbsp;EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small">TTC</span></p>
+                            <p _ngcontent-auq-c14="" style="font-weight: 700; font-size:small;color:red">{{areg}}&nbsp;EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small">TTC</span></p>
                             <!---->
                         </div>
                         <div _ngcontent-auq-c14="" class="col-lg-3 col-12">
                             <p _ngcontent-auq-c14="" class="">EN RETARD</p>
                             <!---->
-                            <p _ngcontent-auq-c14="" style="font-weight: 700; font-size:small; color: palevioletred;"> 0,000&nbsp;EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small">TTC</span></p>
+                            <p _ngcontent-auq-c14="" style="font-weight: 700; font-size:small; color: palevioletred;"> {{sumRetard}}&nbsp;EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small">TTC</span></p>
                             <!---->
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                             <td>{{ff.date_creation}}</td>
                             <td>{{ff.Nom_fournisseur}}</td>
                             <td>{{ff.Montant_TTC}}</td>
-                            <td style="color:red; ">{{ff.Etat}}</td>
+                            <td  [ngStyle]="{'color':getColor(ff.Etat)}">{{ff.Etat}}</td>
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#exampleModal" (click)="payer(ff)" style="font-size: small;"><i class="fas fa-dollar-sign"></i></button>
@@ -162,7 +162,7 @@
                                 règlement</label>
                             <input type="date" style="font-size: small;" name="DP"  
                             [(ngModel)]="paiement.date_reglement"
-                                class="form-control " required>
+                                class="form-control " required disabled>
                                 <!-- [(ngModel)]="p[0].date_reglement"  [ngModelOptions]="{standalone: true}" -->
                         </div>
                         <div class="col-md-6">
@@ -170,7 +170,7 @@
                                 d'échéance</label>
                             <input type="date" style="font-size: small;" 
                             [(ngModel)]="paiement.date_echenace"
-                                class="form-control "  required>
+                                class="form-control "  required disabled>
                                 <!-- [(ngModel)]="p[0].date_echenace"  [ngModelOptions]="{standalone: true}"-->
                         </div>
                     </div>

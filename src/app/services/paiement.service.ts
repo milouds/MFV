@@ -35,4 +35,11 @@ export class PaiementService {
     return this.http.get<Paiement[]>('http://127.0.0.1:8000/api/paiement/facture/'+id);
 
   }
+
+  getSUmRetardAPaye():Observable<any>{
+    return this.http.get('http://localhost:8000/api/resteretard/');
+
+  }
+
+  
 }

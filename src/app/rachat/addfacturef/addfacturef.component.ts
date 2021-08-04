@@ -9,6 +9,8 @@ import { FournisseursService } from 'src/app/services/fournisseurs.service';
 import { ProductService } from 'src/app/services/product.service';
 import { Paiement } from 'src/app/models/paiement';
 import { PaiementService } from 'src/app/services/paiement.service';
+import {formatDate} from '@angular/common';
+
 @Component({
   selector: 'app-addfacturef',
   templateUrl: './addfacturef.component.html',
@@ -38,15 +40,23 @@ export class AddfacturefComponent implements OnInit {
   Net: any;
   prod: any;
   facturefournisseur: FournisseurFacture[] = [new FournisseurFacture()];
+  myDate = new Date();
   constructor(private route: ActivatedRoute, private router: Router, private toastr: ToastrService, private factureService: FacturesService, private productService: ProductService, private four: FournisseursService, private paiement: PaiementService) { }
   ngOnInit(): void {
+
     this.getfournisseur();
     this.facture.Timbre_fiscale = 0.6;
     this.getFactureData()
     this.getproduits();
     this.facture.Montant_TTC = 0;
     this.facture.Montant_TVA = 0;
+    
+    this.facture.date_creation=formatDate(new Date(), 'yyyy-MM-dd', 'en');
+
+    console.log("-----",this.facture.date_creation);
   }
+
+  
   add() {
     let fact = new FournisseurFacture();
     this.facturefournisseur.push(fact);
@@ -57,13 +67,16 @@ export class AddfacturefComponent implements OnInit {
     });
   }
   insertData() {
+
     console.log(this.facture);
     this.facture.Etat = "non payé";
     this.facture.Timbre_fiscale = 0.6;
     this.facture.Nom_fournisseur = this.f[this.index_fournisseur].NOM
     this.facture.id_fournisseur = this.f[this.index_fournisseur].id
     this.facture.quantite_entre = 999;
-    let listAchat: Array<ListProduct> = new Array();
+/*     this.facture.date_creation=this.myDate;
+ */  
+  let listAchat: Array<ListProduct> = new Array();
     for (var i = 0; i < this.facturefournisseur.length; i++) {
       let product = new ListProduct();
 
@@ -75,9 +88,9 @@ export class AddfacturefComponent implements OnInit {
       listAchat.push(product);
     }
     this.facture.ListProduct = listAchat;
-    this.factureService.insertData(this.facture).subscribe(res => {
+   /* this.factureService.insertData(this.facture).subscribe(res => {
     });
-    
+    */
 
     // let paiementt = new Paiement();
     // paiementt.paye="0";
