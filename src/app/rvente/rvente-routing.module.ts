@@ -2,8 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddClientComponent } from './add-client/add-client.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
+import { BonldetailsComponent } from './bonldetails/bonldetails.component';
 import { ClientDetailsComponent } from './client-details/client-details.component';
+import { CommdetailsComponent } from './commdetails/commdetails.component';
+import { DevisdetailsComponent } from './devisdetails/devisdetails.component';
 import { EditClientComponent } from './edit-client/edit-client.component';
+import { EditbonlComponent } from './editbonl/editbonl.component';
+import { EditcommcComponent } from './editcommc/editcommc.component';
+import { EditdevisComponent } from './editdevis/editdevis.component';
 import { EditfactComponent } from './editfact/editfact.component';
 import { EditProductsComponent } from './editproduct/editproduct.component';
 import { FactdetailsComponent } from './factdetails/factdetails.component';
@@ -34,6 +40,12 @@ const routes: Routes = [
    {path:'vente/Facture/Addfact',loadChildren:()=>import('./add-fact/add-fact.module').then(m=>m.AddFactModule)},
    {path:'vente/Facture/factdetails/:id',component:FactdetailsComponent},
    {path:'vente/Facture/editfact/:id',component:EditfactComponent},
+   {path:'vente/Devis/Editdevis/:id',component:EditdevisComponent},
+   {path:'vente/Devis/devisDetails/:id',component:DevisdetailsComponent},
+   {path:'vente/CommandeCl/commDetails/:id',component:CommdetailsComponent},
+   {path:'vente/CommandeCl/editcomm/:id',component:EditcommcComponent},
+   {path:'vente/Bonlivraison/editbonl/:id',component:EditbonlComponent},
+   {path:'vente/Bonlivraison/bonldetails/:id',component:BonldetailsComponent}
  ]}
 ];
 @NgModule({

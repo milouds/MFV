@@ -26,11 +26,12 @@ constructor(private route:ActivatedRoute,private router:Router,private toastr: T
     this.factService.getFactureById(this.id).subscribe(res=>{
     this.data=res;
     this.facture=this.data;
+    this.Net=0;
+    this.Net=this.facture.Montant_TTC+this.facture.Timbre_fiscale;
     })
   }
   updatefacture(){
     this.factService.updateData(this.id,this.facture).subscribe(res=>{
-
     });
   }
   annuler(){

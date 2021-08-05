@@ -19,12 +19,10 @@ export class AccueilComponent implements OnInit {
     this.get();
   }
   get(){
-    this.ProductService.nbprod().subscribe(res=>{
+    this.ProductService.getNumberProduct().subscribe(res=>{
     this.nbprod=res;
   });
-    this.clientService.nbclt().subscribe(res=>{
-    this.nbclt=res;
-  });
+
   this.getClientsData();
 }
 getClientsData(){

@@ -21,5 +21,4 @@ export class FournisseurFacture {
     produit: productModel=new productModel();
     ListProduct: ListProduct[]=[];
     id: any;
-
 }

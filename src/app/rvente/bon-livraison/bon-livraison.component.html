@@ -28,12 +28,24 @@
                             <th>Date</th>
                             <th>Client</th>
                             <th>Montant</th>
-                            <th></th>
+                            <th>Etat</th>
                             <th></th>
                             <th style="width: 130px; ">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
+                        <tr *ngFor="let ff of bonl">
+                            <th>{{ff.Ref_Facture}}</th>
+                            <td>{{ff.date_creation}}</td>
+                            <td>{{ff.Nom_client}}</td>
+                            <td style="color: steelblue;">{{ff.Montant_TTC}} TND</td>
+                            <td style="color: red;">{{ff.Etat}}</td>
+                            <td></td>
+                            <td>
+                                <button type="button" class="btn btn-default btn-sm" style="font-size: small;" routerLink="editbonl/{{ff.id}}"><i class="far fa-edit"></i></button>
+                                <button type="button" class="btn btn-default btn-sm" style="font-size: small;" routerLink="bonldetails/{{ff.id}}"><i class="far fa-eye"></i></button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

@@ -82,4 +82,5 @@ annuler(){
   this.router.navigate(['rachat/achat/facturef']);
   this.toastr.error('', 'Annulation');
 }
+
 }

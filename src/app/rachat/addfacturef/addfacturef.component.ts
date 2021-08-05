@@ -88,9 +88,9 @@ export class AddfacturefComponent implements OnInit {
       listAchat.push(product);
     }
     this.facture.ListProduct = listAchat;
-   /* this.factureService.insertData(this.facture).subscribe(res => {
+    this.factureService.insertData(this.facture).subscribe(res => {
     });
-    */
+    
 
     // let paiementt = new Paiement();
     // paiementt.paye="0";

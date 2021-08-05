@@ -5,7 +5,7 @@
                 <h3 class="card-title"><i class="fas fa-file-alt mr-2"></i>Commande Client</h3>
                 <div class="card-tools">
                     <div class="input-group input-group-sm">
-                        <input type="text" class="form-control" placeholder="Recherche...">
+                        <input type="text" class="form-control" placeholder="Recherche..." id="myInput">
                         <div class="input-group-append">
                             <div class="btn btn-primary">
                                 <i class="fas fa-search"></i>
@@ -28,16 +28,27 @@
                             <th>Date</th>
                             <th>Client</th>
                             <th>Montant</th>
-                            <th></th>
+                            <th>Etat</th>
                             <th></th>
                             <th style="width: 130px; ">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
+                        <tr *ngFor="let ff of comm">
+                            <th>{{ff.Ref_Facture}}</th>
+                            <td>{{ff.date_creation}}</td>
+                            <td>{{ff.Nom_client}}</td>
+                            <td>{{ff.Montant_TTC}}</td>
+                            <td style="color:red">{{ff.Etat}}</td>
+                            <td></td>
+                            <td>
+                                <button type="button" class="btn btn-default btn-sm" style="font-size: small;" routerLink="editcomm/{{ff.id}}"><i class="far fa-edit"></i></button>
+                                <button type="button" class="btn btn-default btn-sm" style="font-size: small;" routerLink="commDetails/{{ff.id}}"><i class="far fa-eye"></i></button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
-<router-outlet></router-outlet>
